@@ -1,0 +1,95 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(120deg, #2980b9, #6dd5fa);
+  font-family: Arial, sans-serif;
+  transition: background 1s ease;
+}
+
+.calculator {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: pulse 6s infinite;
+}
+
+#display {
+  width: 95%;
+  height: 60px;
+  font-size: 2rem;
+  text-align: right;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  border: none;
+  padding: 10px 15px;
+  background: #333;
+  color: white;
+  box-shadow: inset 0 4px 8px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+#display:focus {
+  outline: none;
+  box-shadow: 0 0 10px #6dd5fa;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+button {
+  padding: 18px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: white;
+  background: linear-gradient(45deg, #ff6b6b, #f06595);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.4);
+}
+
+button:active {
+  transform: scale(0.95);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+button:nth-child(4n) { background: linear-gradient(45deg, #ff9500, #ffc107); }
+button:nth-child(1), button:nth-child(2), button:nth-child(3) { background: linear-gradient(45deg, #dc3545, #ff5c5c); }
+button:not(:nth-child(4n)):not(:nth-child(-n+3)) { background: linear-gradient(45deg, #333, #555); }
+
+/* Animations */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+/* Media Queries for smaller devices */
+@media (max-width: 480px) {
+  #display { font-size: 1.5rem; height: 50px; }
+  button { padding: 14px; font-size: 1.2rem; }
+  .calculator { padding: 15px; }
+}
+
+@media (max-width: 360px) {
+  #display { font-size: 1.2rem; height: 45px; }
+  button { padding: 12px; font-size: 1rem; }
+}
